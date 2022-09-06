@@ -4,15 +4,18 @@
 
 
 // around variable
+// textarea id 명칭으로 변수명으로 지정
 var txt = document.getElementById('contents');
 var rst = document.getElementById('result');
 var fnl = document.getElementById('final');
 
-var array_lv1 = [];
-var array_lv2 = [];
-var array_title = [];
-var array_answer = [];
+// 배열 생성
+var array_lv1 = [];     // 문제에 대한 배열
+var array_lv2 = [];     // 콘솔로그에 대한 배열
+var array_title = [];   // 타이틀을 위한 배열
+var array_answer = [];  // 정답지를 위한 배열
 
+// textarea id 명칭으로 변수명으로 지정
 var txt_info = document.getElementById('txt_info');
 var txt_title = document.getElementById('txt_title');
 var txt_object = document.getElementById('txt_object');
@@ -28,8 +31,10 @@ var txt_count = document.getElementById('txt_count');
 var txt_thumb = document.getElementById('txt_thumb');
 var txt_answer = document.getElementById('txt_answer');
 
+// div id 명칭으로 변수명으로 지정
 var div_postView = document.getElementById('postView');
 
+// 변수 생성 및 초기화
 var src_mobile_url_no = "";
 var src_thumb = "";
 var src_notice_header = "";
@@ -50,25 +55,26 @@ var src_answer_table_footer = "";
 var src_shortcut = "";
 var src_notice_footer = "";
 
+// textarea#txt_info에 해당값 채우기
 txt_info.value = "[과목명] \n[종  류] \n[연  도] \n[학  기] \n[학  년] \n[교수명] \n[셤범위] \n[시작넘] \n[종료넘] \n[썸네일] \n[정  답] ";
 
-// txt_info data
+// textarea # txt_info 값 중에서 내용의 index 키값 뽑기
 function info_input(){
-    var infoData = txt_info.value;
-    var infoObject = infoData.indexOf('[과목명]');
-    var infoKind = infoData.indexOf('[종  류]');
-    var infoYear = infoData.indexOf('[연  도]');
-    var infoSeme = infoData.indexOf('[학  기]');
-    var infoGrade = infoData.indexOf('[학  년]');
-    var infoProf = infoData.indexOf('[교수명]');
-    var infoRange = infoData.indexOf('[셤범위]');
-    var infoSNum = infoData.indexOf('[시작넘]');
-    var infoENum = infoData.indexOf('[종료넘]');
-    var infoThumb = infoData.indexOf('[썸네일]');
-    var infoAnswer = infoData.indexOf('[정  답]');
-    var infoLength = infoData.length;
+    var infoData = txt_info.value;                  // 변수 infoData에 txt_info의 값을 넣어라
+    var infoObject = infoData.indexOf('[과목명]');  // 변수 infoObject에 infoData의 값 중에서 [과목명]의 index값을 넣어라.
+    var infoKind = infoData.indexOf('[종  류]');    // 상동
+    var infoYear = infoData.indexOf('[연  도]');    // 상동
+    var infoSeme = infoData.indexOf('[학  기]');    // 상동
+    var infoGrade = infoData.indexOf('[학  년]');   // 상동
+    var infoProf = infoData.indexOf('[교수명]');    // 상동
+    var infoRange = infoData.indexOf('[셤범위]');   // 상동
+    var infoSNum = infoData.indexOf('[시작넘]');    // 상동
+    var infoENum = infoData.indexOf('[종료넘]');    // 상동
+    var infoThumb = infoData.indexOf('[썸네일]');   // 상동
+    var infoAnswer = infoData.indexOf('[정  답]');  // 상동
+    var infoLength = infoData.length;               // 변수 infoLength에 infoData의 총 글자수를 넣어라.
 
-    var infoObjectData = (infoData.substring(infoObject+5, infoKind)).replace(/(^\s*)|(\s*$)/gi, "");
+    var infoObjectData = (infoData.substring(infoObject+5, infoKind)).replace(/(^\s*)|(\s*$)/gi, "");       // 변수 infoObjectData에 infoObject에서 [과목명]이후부터 [종  류]앞에까지 가져와서 넣어라.
     var infoKindData = (infoData.substring(infoKind+6, infoYear)).replace(/(^\s*)|(\s*$)/gi, "");
     var infoYearData = (infoData.substring(infoYear+6, infoSeme)).replace(/(^\s*)|(\s*$)/gi, "");
     var infoSemeData = (infoData.substring(infoSeme+6, infoGrade)).replace(/(^\s*)|(\s*$)/gi, "");
