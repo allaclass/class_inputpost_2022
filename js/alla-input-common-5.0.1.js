@@ -5,9 +5,7 @@
 
 // around variable
 // textarea id 명칭으로 변수명으로 지정
-var txt = document.getElementById('contents');
-var rst = document.getElementById('result');
-var fnl = document.getElementById('final');
+var txt_info = document.getElementById('txt_info');
 
 // 배열 생성
 var array_lv1 = [];     // 문제에 대한 배열
@@ -56,7 +54,7 @@ var src_shortcut = "";
 var src_notice_footer = "";
 
 // textarea#txt_info에 해당값 채우기
-txt_info.value = "[과목명] \n[종  류] \n[연  도] \n[학  기] \n[학  년] \n[교수명] \n[셤범위] \n[시작넘] \n[종료넘] \n[썸네일] \n[정  답] ";
+// txt_info.value = "[과목명] \n[종  류] \n[연  도] \n[학  기] \n[학  년] \n[교수명] \n[셤범위] \n[시작넘] \n[종료넘] \n[썸네일] \n[정  답] ";
 
 // textarea # txt_info 값 중에서 내용의 index 키값 뽑기
 function info_input(){
