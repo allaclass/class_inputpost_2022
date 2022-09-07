@@ -5,55 +5,17 @@ html, body {
     padding: 0;
     margin: 0;
     background-color: #252525;
-}
-
-.contents,
-.txt_example {
-    width: 100%;
-    height: 60%;
-    float: left;
-    background-color: #252525;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    border: none;
-    resize: vertical;
-    color: #aaa;
-    font-size: 16px;
-    line-height: 1.6em;
-    font-weight: 300;
-    border-top: 1px solid #525252;
-}
-
-.result{
-    display: none;
-}
-
-.final{
-    width: 30%;
-    height: 40%;
-    float: right;
-    background-color: #252525;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    border: none;
-    resize: vertical;
-    color: #aaa;
-    font-size: 10px;
-    font-weight: 300;
+    overflow: auto;
 }
 
 /* menuWrap */
 .menuWrap {
     width: 100%;
-    height: 60px;
-    float: left;
+    height: 85px;
     background-color: #252525;
     margin: 0;
     padding-top: 20px;
-    /* box-sizing: border-box; */
-    border-right: 1px solid #525252;
+    box-sizing: border-box;
     overflow: scroll;
     font-size: 12px;
     text-align: center;
@@ -78,6 +40,26 @@ html, body {
 .menuWrap button:active {
     background-color: #151515;
 }
+
+/* 텍스트 영역 */
+.txt_example {
+    width: 100%;
+    height: 90%;
+    float: left;
+    background-color: #252525;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border: none;
+    resize: vertical;
+    color: #aaa;
+    font-size: 16px;
+    line-height: 1.6em;
+    font-weight: 300;
+    border-top: 1px solid #525252;
+    border-bottom: 1px solid #525252;
+}
+
 
 /* scrollbar */
 ::-webkit-scrollbar {

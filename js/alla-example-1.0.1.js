@@ -12,3 +12,4 @@ function inputData(){
     data_example = url_example.value;
     console.log(data_example);
 }
+
