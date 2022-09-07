@@ -10,13 +10,36 @@
 <body>
 
     <div class="menuWrap">
-        <button onclick="inputData()">콘솔로그</button>
-        <button onclick="convertor_1()">컨버터_1</button>
-        <button onclick="convertor_Kor()">/한글</button>
-        <button onclick="convertor_EngSmall()">/영소</button>
-        <button onclick="pushData_Kor()">값넣기 (가.나.)</button>
-        <button onclick="pushData_EngSmall()">값넣기(a.b.)</button>
-        <button onclick="clearData()">비우기</button>
+        <button onclick="convertor_Kor()">가.</button>
+        <button onclick="convertor_KorJa()">ㄱ.</button>
+        <button onclick="convertor_EngSmall()">a.</button>
+        <button onclick="convertor_EngBig()">A.</button>
+        <!-- <button onclick="convertor_Bar()">바 -</button> -->
+        <br><br>
+        <button onclick="convertor_CircleKor()">㉮</button>
+        <button onclick="convertor_CircleKorJa()">㉠</button>
+        <button onclick="convertor_CircleEngSmall()">ⓐ</button>
+        <button onclick="convertor_CircleEngBig()">Ⓐ</button>
+        <br><br>
+        <button onclick="convertor_WrapKor()">( 가 )</button>
+        <button onclick="convertor_WrapKorJa()">( ㄱ )</button>
+        <button onclick="convertor_WrapEngSmall()">( a )</button>
+        <button onclick="convertor_WrapEngBig()">( A )</button>
+        <br><br><br><br>
+        <button onclick="pushData_Kor()">"가."</button>
+        <button onclick="pushData_KorJa()">"ㄱ."</button>
+        <button onclick="pushData_EngSmall()">"a."</button>
+        <button onclick="pushData_EngBig()">"A."</button>
+        <br><br>
+        <button onclick="pushData_CircleKor()">"㉮"</button>
+        <button onclick="pushData_CircleKorJa()">"㉠"</button>
+        <button onclick="pushData_CircleEngSmall()">"ⓐ"</button>
+        <button onclick="pushData_CircleEngBig()">"Ⓐ"</button>
+        <br><br>
+        <button onclick="pushData_WrapKor()">"( 가 )"</button>
+        <button onclick="pushData_WrapKorJa()">"( ㄱ )"</button>
+        <button onclick="pushData_WrapEngSmall()">"( a )"</button>
+        <button onclick="pushData_WrapEngBig()">"( A )"</button>
     </div>
 
     <textarea class="txt_example" id="txt_example" placeholder=""></textarea>
