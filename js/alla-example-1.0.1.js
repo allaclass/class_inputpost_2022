@@ -26,6 +26,8 @@ var data_tmp = '/보기문';            // 변환한 데이터를 임시로 넣�
 // ------------------------------------------------------------------------------
 
 var arrStandard = [];       // 보기문 리스트의 기준들을 넣어둘 배열 (예시: 가. 나. 다 또는 ⓐ, ⓑ, ⓒ)
+var arrStandard_convertor = [];     // 보기문 리스트 기준값을 다른 걸로 변경할 때 사용할 배열 (예시: ⒜ → (a))
+var varStandard = '  - ';       // 보기문 리스트의 기준값을 넣어둘 변수 (/바 전용)
 
 // ------------------------------------------------------------------------------
 // 함 수 영 역
@@ -39,41 +41,90 @@ function clearData(){       // textarea #txt_example 의 값을 비우는 함수
     url_example.value = '';
 }
 
-function pushData_Kor(){
-    url_example.value = '   가. 가가가가\n  나. 나나나나\n 다. 다다다다\n    라. 라라라라\n  마. 마마마마';
-}
-
-function pushData_KorJa(){
-    url_example.value = '   ㄱ. 가가가가\n  ㄴ. 나나나나\n ㄷ. 다다다다\n    ㄹ. 라라라라\n  ㅁ. 마마마마';
-}
-
-function pushData_EngSmall(){
-    url_example.value = '   a. aaaa\n  b. bbbb\n c. cccc\n    d. dddd\n  e. eeee';
-}
-
-function pushData_EngBig(){
-    url_example.value = '   A. AAAA\n  B. BBBB\n C. CCCC\n    D. DDDD\n  E. EEEEEEEEE';
-}
-
-function pushData_CircleKor(){
-    url_example.value = '  ㉮ 가가가가\n     ㉯ 나나나나\n  ㉰ 다다다다\n ㉱ 라라라라';
-}
-
-function pushData_CircleKorJa(){
-    url_example.value = '  ㉠ 가가가가\n     ㉡ 나나나나\n  ㉢ 다다다다\n ㉣ 라라라라';
-}
-
-function pushData_CircleEngSmall(){
-    url_example.value = '  ⓐ 가가가가\n     ⓑ 나나나나\n  ⓒ 다다다다\n ⓓ 라라라라';
-}
-
-function pushData_CircleEngBig(){
-    url_example.value = '  Ⓐ 가가가가\n     Ⓑ 나나나나\n  Ⓒ 다다다다\n Ⓓ 라라라라';
-}
-
 function pushData_result(){
     url_example.value = data_tmp;
 }
+
+function pushData_Kor(){
+    url_example.value = '   가.가가가가\n  나. 나나나나\n 다. 다다다다\n    라. 라라라라\n  마. 마마마마';
+}
+
+function pushData_KorJa(){
+    url_example.value = '   ㄱ.가가가가\n  ㄴ. 나나나나\n ㄷ. 다다다다\n    ㄹ. 라라라라\n  ㅁ. 마마마마';
+}
+
+function pushData_EngSmall(){
+    url_example.value = '   a.aaaa\n  b. bbbb\n c. cccc\n    d. dddd\n  e. eeee';
+}
+
+function pushData_EngBig(){
+    url_example.value = '   A.AAAA\n  B. BBBB\n C. CCCC\n    D. DDDD\n  E. EEEEEEEEE';
+}
+
+function pushData_Bar(){
+    url_example.value = '    - AAAA\n    - BBBB\n    - CCCC\n    - DDDD\n    - EEEEEEEEE';
+}
+
+function pushData_CircleKor(){
+    url_example.value = '  ㉮가가가가\n     ㉯ 나나나나\n  ㉰ 다다다다\n ㉱ 라라라라';
+}
+
+function pushData_CircleKorJa(){
+    url_example.value = '  ㉠가가가가\n     ㉡ 나나나나\n  ㉢ 다다다다\n ㉣ 라라라라';
+}
+
+function pushData_CircleEngSmall(){
+    url_example.value = '  ⓐ가가가가\n     ⓑ 나나나나\n  ⓒ 다다다다\n ⓓ 라라라라';
+}
+
+function pushData_CircleEngBig(){
+    url_example.value = '  Ⓐ가가가가\n     Ⓑ 나나나나\n  Ⓒ 다다다다\n Ⓓ 라라라라';
+}
+
+function pushData_WrapKor(){
+    url_example.value = '  (가)가가가가\n     (나) 나나나나\n  (다) 다다다다\n (라) 라라라라';
+}
+
+function pushData_WrapKorJa(){
+    url_example.value = '  (ㄱ)ㄱㄱㄱㄱ\n     (ㄴ) ㄴㄴㄴㄴ\n  (ㄷ) ㄷㄷㄷㄷ\n (ㄹ) ㄹㄹㄹㄹ';
+}
+
+function pushData_WrapEngSmall(){
+    url_example.value = '  (a)aaaa\n     (b) bbbb\n  (c) cccc\n (d) dddd';
+}
+
+function pushData_WrapEngBig(){
+    url_example.value = '  (A)AAAAA\n     (B) BBBBB\n  (C) CCCCC\n (D) DDDD';
+}
+
+function pushData_WrapNumber(){
+    url_example.value = '  (1)AAAAA\n     (2) BBBBB\n  (3) CCCCC\n (4) DDDD';
+}
+
+function pushData_GihoWrapKor(){
+    url_example.value = '  ㈎가가가가\n     ㈏ 나나나나\n  ㈐ 다다다다\n ㈑ 라라라라';
+}
+
+function pushData_GihoWrapKorJa(){
+    url_example.value = '  ㈀ㄱㄱㄱㄱ\n     ㈁ ㄴㄴㄴㄴ\n  ㈂ ㄷㄷㄷㄷ\n ㈃ ㄹㄹㄹㄹ';
+}
+
+function pushData_GihoWrapEngSmall(){
+    url_example.value = '  ⒜aaaa\n     ⒝ bbbb\n  ⒞ cccc\n ⒟ dddd';
+}
+
+function pushData_GihoWrapNumber(){
+    url_example.value = '  ⑴AAAAA\n     ⑵ BBBBB\n  ⑶ CCCCC\n ⑷ DDDD';
+}
+
+function pushData_GihoNumber(){
+    url_example.value = '  ①AAAAA\n     ② BBBBB\n  ③ CCCCC\n ④ DDDD';
+}
+
+
+// ------------------------------------------------------------------------------
+// 변환 함수 영역
+// ------------------------------------------------------------------------------
 
 
 // /한글 - 가. 나.
@@ -195,6 +246,7 @@ function convertor_EngSmall(){     // 보기문 : a.b.c. 변환 함수
             input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
             
             data_tmp += '/영소'+arrStandard[i]+' '+input_tmp+'/.영소';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
+            // data_tmp += '/영어'+arrStandard[i]+' '+input_tmp+'/.영어';       // 추후 변경 예정
 
             input_tmp = '';                                                                                           // input_tmp 변수 초기화
 
@@ -239,10 +291,53 @@ function convertor_EngBig(){     // 보기문 : a.b.c. 변환 함수
             input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
             
             data_tmp += '/영소'+arrStandard[i]+' '+input_tmp+'/.영소';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
+            // data_tmp += '/영어'+arrStandard[i]+' '+input_tmp+'/.영어';       // 추후 변경 예정
 
             input_tmp = '';                                                                                           // input_tmp 변수 초기화
 
             pushData_result();                                                                                       // textarea #txt_example 에 출력하기
+
+        } else if(data_example.indexOf(text_standard)<0){   // 보기문에서 다음단계 기준값이 없다면 반복 종료
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /바 - 
+function convertor_EngBig(){     // 보기문 : a.b.c. 변환 함수
+    inputData();    // #txt_example 데이터 가져오기
+    clearData();    // #txt_example 비우기
+
+    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+
+        text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
+
+        if(data_example.indexOf(text_standard)>-1){     // 보기문에서 기준값이 있다면
+            var j = i+1;                                                                // 기준값 배열의 다음단계 인덱스값을 담아둘 변수 j
+            var indexStart = '';                                                       // 시작 인덱스 담을 변수 생성
+            var indexEnd = '';                                                        // 종료 인덱스 담을 변수 생성
+
+            indexStart = data_example.indexOf(text_standard);              // 현재 기준값의 보기문 시작 인덱스값 넣기
+            
+            text_standard_next = arrStandard[j]                             // text_standard_next 변수에 다음단계 기준값 넣기 (예시: 현재 /가. 라면 /나.를 담는 것)
+
+            if(data_example.indexOf(text_standard_next)>-1){                // 다음단계 기준값이 보기문에 있다면
+                indexEnd = data_example.indexOf(text_standard_next);            // 다음단계 기준값의 보기문 시작 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            } else {                                                                      // 다음단계 기준값이 보기문에 없다면
+                indexEnd = data_example.length;                                       // 보기문 맨끝값의 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            
+            data_tmp += '/바 - '+arrStandard[i]+' '+input_tmp+'/.바';
+
+            input_tmp = '';
+
+            pushData_result();
 
         } else if(data_example.indexOf(text_standard)<0){   // 보기문에서 다음단계 기준값이 없다면 반복 종료
             data_tmp = '/보기문';
@@ -280,7 +375,7 @@ function convertor_CircleKor(){     // 보기문 : a.b.c. 변환 함수
                 data_tmp += '\n';
             }
 
-            input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
             
             data_tmp += '/서클'+arrStandard[i]+' '+input_tmp+'/.서클';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
 
@@ -324,7 +419,7 @@ function convertor_CircleKorJa(){     // 보기문 : a.b.c. 변환 함수
                 data_tmp += '\n';
             }
 
-            input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
             
             data_tmp += '/서클'+arrStandard[i]+' '+input_tmp+'/.서클';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
 
@@ -368,7 +463,7 @@ function convertor_CircleEngSmall(){     // 보기문 : a.b.c. 변환 함수
                 data_tmp += '\n';
             }
 
-            input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
             
             data_tmp += '/서클'+arrStandard[i]+' '+input_tmp+'/.서클';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
 
@@ -412,7 +507,7 @@ function convertor_CircleEngBig(){
                 data_tmp += '\n';
             }
 
-            input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
             
             data_tmp += '/서클'+arrStandard[i]+' '+input_tmp+'/.서클';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
 
@@ -421,6 +516,454 @@ function convertor_CircleEngBig(){
             pushData_result();                                                                                       // textarea #txt_example 에 출력하기
 
         } else if(data_example.indexOf(text_standard)<0){   // 보기문에서 다음단계 기준값이 없다면 반복 종료
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호한글 - (가) (나)
+function convertor_WrapKor(){
+    inputData();    // #txt_example 데이터 가져오기
+    clearData();    // #txt_example 비우기
+    
+    arrStandard = [' (가)', ' (나)', ' (다)', ' (라)', ' (마)', ' (바)', ' (사)', ' (아)', ' (자)', ' (차)', ' (카)', ' (타)', ' (파)', ' (하)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+
+        text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
+
+        if(data_example.indexOf(text_standard)>-1){     // 보기문에서 기준값이 있다면
+            var j = i+1;                                                                // 기준값 배열의 다음단계 인덱스값을 담아둘 변수 j
+            var indexStart = '';                                                       // 시작 인덱스 담을 변수 생성
+            var indexEnd = '';                                                        // 종료 인덱스 담을 변수 생성
+
+            indexStart = data_example.indexOf(text_standard);              // 현재 기준값의 보기문 시작 인덱스값 넣기
+            
+            text_standard_next = arrStandard[j]                             // text_standard_next 변수에 다음단계 기준값 넣기 (예시: 현재 /가. 라면 /나.를 담는 것)
+
+            if(data_example.indexOf(text_standard_next)>-1){                // 다음단계 기준값이 보기문에 있다면
+                indexEnd = data_example.indexOf(text_standard_next);            // 다음단계 기준값의 보기문 시작 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            } else {                                                                      // 다음단계 기준값이 보기문에 없다면
+                indexEnd = data_example.length;                                       // 보기문 맨끝값의 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+4, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            
+            data_tmp += '/괄호한글'+arrStandard[i]+' '+input_tmp+'/.괄호한글';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
+
+            input_tmp = '';                                                                                           // input_tmp 변수 초기화
+
+            pushData_result();                                                                                       // textarea #txt_example 에 출력하기
+
+        } else if(data_example.indexOf(text_standard)<0){   // 보기문에서 다음단계 기준값이 없다면 반복 종료
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호한글(자음) - (ㄱ) (ㄴ)
+function convertor_WrapKorJa(){
+    inputData();    // #txt_example 데이터 가져오기
+    clearData();    // #txt_example 비우기
+    
+    arrStandard = [' (ㄱ)', ' (ㄴ)', ' (ㄷ)', ' (ㄹ)', ' (ㅁ)', ' (ㅂ)', ' (ㅅ)', ' (ㅇ)', ' (ㅈ)', ' (ㅊ)', ' (ㅋ)', ' (ㅌ)', ' (ㅍ)', ' (ㅎ)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+
+        text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
+
+        if(data_example.indexOf(text_standard)>-1){     // 보기문에서 기준값이 있다면
+            var j = i+1;                                                                // 기준값 배열의 다음단계 인덱스값을 담아둘 변수 j
+            var indexStart = '';                                                       // 시작 인덱스 담을 변수 생성
+            var indexEnd = '';                                                        // 종료 인덱스 담을 변수 생성
+
+            indexStart = data_example.indexOf(text_standard);              // 현재 기준값의 보기문 시작 인덱스값 넣기
+            
+            text_standard_next = arrStandard[j]                             // text_standard_next 변수에 다음단계 기준값 넣기 (예시: 현재 /가. 라면 /나.를 담는 것)
+
+            if(data_example.indexOf(text_standard_next)>-1){                // 다음단계 기준값이 보기문에 있다면
+                indexEnd = data_example.indexOf(text_standard_next);            // 다음단계 기준값의 보기문 시작 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            } else {                                                                      // 다음단계 기준값이 보기문에 없다면
+                indexEnd = data_example.length;                                       // 보기문 맨끝값의 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+4, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            
+            data_tmp += '/괄호한글'+arrStandard[i]+' '+input_tmp+'/.괄호한글';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
+
+            input_tmp = '';                                                                                           // input_tmp 변수 초기화
+
+            pushData_result();                                                                                       // textarea #txt_example 에 출력하기
+
+        } else if(data_example.indexOf(text_standard)<0){   // 보기문에서 다음단계 기준값이 없다면 반복 종료
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호영소 - (a) (b)
+function convertor_WrapEngSmall(){
+    inputData();    // #txt_example 데이터 가져오기
+    clearData();    // #txt_example 비우기
+    
+    arrStandard = [' (a)', ' (b)', ' (c)', ' (d)', ' (e)', ' (f)', ' (g)', ' (h)', ' (i)', ' (j)', ' (k)', ' (l)', ' (m)', ' (n)', ' (o)', ' (p)', ' (q)', ' (r)', ' (s)', ' (t)', ' (u)', ' (v)', ' (w)', ' (x)', ' (y)', ' (z)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+
+        text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
+
+        if(data_example.indexOf(text_standard)>-1){     // 보기문에서 기준값이 있다면
+            var j = i+1;                                                                // 기준값 배열의 다음단계 인덱스값을 담아둘 변수 j
+            var indexStart = '';                                                       // 시작 인덱스 담을 변수 생성
+            var indexEnd = '';                                                        // 종료 인덱스 담을 변수 생성
+
+            indexStart = data_example.indexOf(text_standard);              // 현재 기준값의 보기문 시작 인덱스값 넣기
+            
+            text_standard_next = arrStandard[j]                             // text_standard_next 변수에 다음단계 기준값 넣기 (예시: 현재 /가. 라면 /나.를 담는 것)
+
+            if(data_example.indexOf(text_standard_next)>-1){                // 다음단계 기준값이 보기문에 있다면
+                indexEnd = data_example.indexOf(text_standard_next);            // 다음단계 기준값의 보기문 시작 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            } else {                                                                      // 다음단계 기준값이 보기문에 없다면
+                indexEnd = data_example.length;                                       // 보기문 맨끝값의 인덱스값을 종료 인덱스값에 넣기
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+4, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            
+            data_tmp += '/괄호영소'+arrStandard[i]+' '+input_tmp+'/.괄호영소';                                // 변환된 정보를 data_tmp 변수에 담아라           ★ 변수 기준 바꿀 때 여기 체크
+
+            input_tmp = '';                                                                                           // input_tmp 변수 초기화
+
+            pushData_result();                                                                                       // textarea #txt_example 에 출력하기
+
+        } else if(data_example.indexOf(text_standard)<0){   // 보기문에서 다음단계 기준값이 없다면 반복 종료
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호영대 - (A) (B)
+function convertor_WrapEngBig(){
+    inputData();
+    clearData();
+    
+    arrStandard = [' (A)', ' (B)', ' (C)', ' (D)', ' (E)', ' (F)', ' (G)', ' (H)', ' (I)', ' (J)', ' (K)', ' (L)', ' (M)', ' (N)', ' (O)', ' (P)', ' (Q)', ' (R)', ' (S)', ' (T)', ' (U)', ' (V)', ' (W)', ' (X)', ' (Y)', ' (Z)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){
+
+        text_standard = arrStandard[i];
+
+        if(data_example.indexOf(text_standard)>-1){
+            var j = i+1;
+            var indexStart = '';
+            var indexEnd = '';
+
+            indexStart = data_example.indexOf(text_standard);
+            
+            text_standard_next = arrStandard[j];
+
+            if(data_example.indexOf(text_standard_next)>-1){
+                indexEnd = data_example.indexOf(text_standard_next);
+                data_tmp += '\n';
+            } else {
+                indexEnd = data_example.length;
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+4, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
+            
+            data_tmp += '/괄호영대'+arrStandard[i]+' '+input_tmp+'/.괄호영대';
+
+            input_tmp = '';
+
+            pushData_result();
+
+        } else if(data_example.indexOf(text_standard)<0){
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호숫자 - (1) (2) (/괄호영소 동일)
+function convertor_WrapNumber(){
+    inputData();
+    clearData();
+    
+    arrStandard = [' (1)', ' (2)', ' (3)', ' (4)', ' (5)', ' (6)', ' (7)', ' (8)', ' (9)', ' (10)', ' (11)', ' (12)', ' (13)', ' (14)', ' (15)', ' (16)', ' (17)', ' (18)', ' (19)', ' (20)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){
+
+        text_standard = arrStandard[i];
+
+        if(data_example.indexOf(text_standard)>-1){
+            var j = i+1;
+            var indexStart = '';
+            var indexEnd = '';
+
+            indexStart = data_example.indexOf(text_standard);
+            
+            text_standard_next = arrStandard[j];
+
+            if(data_example.indexOf(text_standard_next)>-1){
+                indexEnd = data_example.indexOf(text_standard_next);
+                data_tmp += '\n';
+            } else {
+                indexEnd = data_example.length;
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+4, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
+            
+            data_tmp += '/괄호영소'+arrStandard[i]+' '+input_tmp+'/.괄호영소';
+            // data_tmp += '/괄호숫자'+arrStandard[i]+' '+input_tmp+'/.괄호숫자';   // 추후 변경
+
+            input_tmp = '';
+
+            pushData_result();
+
+        } else if(data_example.indexOf(text_standard)<0){
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호한글(기호) → /괄호한글 변환 (예시. ㈎ → (가))
+function convertor_GihoWrapKor(){
+    inputData();
+    clearData();
+    
+    arrStandard = [' ㈎', ' ㈏', ' ㈐', ' ㈑', ' ㈒', ' ㈓', ' ㈔', ' ㈕', ' ㈖', ' ㈗', ' ㈘', ' ㈙', ' ㈚', ' ㈛'];
+    arrStandard_convertor = [' (가)', ' (나)', ' (다)', ' (라)', ' (마)', ' (바)', ' (사)', ' (아)', ' (자)', ' (차)', ' (카)', ' (타)', ' (파)', ' (하)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){
+
+        text_standard = arrStandard[i];
+
+        if(data_example.indexOf(text_standard)>-1){
+            var j = i+1;
+            var indexStart = '';
+            var indexEnd = '';
+
+            indexStart = data_example.indexOf(text_standard);
+            
+            text_standard_next = arrStandard[j];
+
+            if(data_example.indexOf(text_standard_next)>-1){
+                indexEnd = data_example.indexOf(text_standard_next);
+                data_tmp += '\n';
+            } else {
+                indexEnd = data_example.length;
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
+            
+            data_tmp += '/괄호한글'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호한글';
+
+            input_tmp = '';
+
+            pushData_result();
+
+        } else if(data_example.indexOf(text_standard)<0){
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호한글자음(기호) → /괄호한글자음 변환 (예시. ㈀ → (ㄱ))
+function convertor_GihoWrapKorJa(){
+    inputData();
+    clearData();
+    
+    arrStandard = [' ㈀', ' ㈁', ' ㈂', ' ㈃', ' ㈄', ' ㈅', ' ㈆', ' ㈇', ' ㈈', ' ㈉', ' ㈊', ' ㈋', ' ㈌', ' ㈍'];
+    arrStandard_convertor = [' (ㄱ)', ' (ㄴ)', ' (ㄷ)', ' (ㄹ)', ' (ㅁ)', ' (ㅂ)', ' (ㅅ)', ' (ㅇ)', ' (ㅈ)', ' (ㅊ)', ' (ㅋ)', ' (ㅌ)', ' (ㅍ)', ' (ㅎ)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){
+
+        text_standard = arrStandard[i];
+
+        if(data_example.indexOf(text_standard)>-1){
+            var j = i+1;
+            var indexStart = '';
+            var indexEnd = '';
+
+            indexStart = data_example.indexOf(text_standard);
+            
+            text_standard_next = arrStandard[j];
+
+            if(data_example.indexOf(text_standard_next)>-1){
+                indexEnd = data_example.indexOf(text_standard_next);
+                data_tmp += '\n';
+            } else {
+                indexEnd = data_example.length;
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
+            
+            data_tmp += '/괄호한글'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호한글';
+
+            input_tmp = '';
+
+            pushData_result();
+
+        } else if(data_example.indexOf(text_standard)<0){
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호영소(기호) → /괄호영소 변환 (예시. ⒜ → (a))
+function convertor_GihoWrapEngSmall(){
+    inputData();
+    clearData();
+    
+    arrStandard = [' ⒜', ' ⒝', ' ⒞', ' ⒟', ' ⒠', ' ⒡', ' ⒢', ' ⒣', ' ⒤', ' ⒥', ' ⒦', ' ⒧', ' ⒨', ' ⒩', ' ⒪', ' ⒫', ' ⒬', ' ⒭', ' ⒮', ' ⒯', ' ⒰', ' ⒱', ' ⒲', ' ⒳', ' ⒴', ' ⒵'];
+    arrStandard_convertor = [' (a)', ' (b)', ' (c)', ' (d)', ' (e)', ' (f)', ' (g)', ' (h)', ' (i)', ' (j)', ' (k)', ' (l)', ' (m)', ' (n)', ' (o)', ' (p)', ' (q)', ' (r)', ' (s)', ' (t)', ' (u)', ' (v)', ' (w)', ' (x)', ' (y)', ' (z)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){
+
+        text_standard = arrStandard[i];
+
+        if(data_example.indexOf(text_standard)>-1){
+            var j = i+1;
+            var indexStart = '';
+            var indexEnd = '';
+
+            indexStart = data_example.indexOf(text_standard);
+            
+            text_standard_next = arrStandard[j];
+
+            if(data_example.indexOf(text_standard_next)>-1){
+                indexEnd = data_example.indexOf(text_standard_next);
+                data_tmp += '\n';
+            } else {
+                indexEnd = data_example.length;
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
+            
+            data_tmp += '/괄호영소'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호영소';
+
+            input_tmp = '';
+
+            pushData_result();
+
+        } else if(data_example.indexOf(text_standard)<0){
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호숫자(기호) → /괄호숫자 변환 (예시. ⑴ → (1))
+function convertor_GihoWrapNumber(){
+    inputData();
+    clearData();
+    
+    arrStandard = [' ⑴', ' ⑵', ' ⑶', ' ⑷', ' ⑸', ' ⑹', ' ⑺', ' ⑻', ' ⑼', ' ⑽', ' ⑾', ' ⑿', ' ⒀', ' ⒁', ' ⒂', ' ⒃', ' ⒄', ' ⒅', ' ⒆', ' ⒇'];
+    arrStandard_convertor = [' (1)', ' (2)', ' (3)', ' (4)', ' (5)', ' (6)', ' (7)', ' (8)', ' (9)', ' (10)', ' (11)', ' (12)', ' (13)', ' (14)', ' (15)', ' (16)', ' (17)', ' (18)', ' (19)', ' (20)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){
+
+        text_standard = arrStandard[i];
+
+        if(data_example.indexOf(text_standard)>-1){
+            var j = i+1;
+            var indexStart = '';
+            var indexEnd = '';
+
+            indexStart = data_example.indexOf(text_standard);
+            
+            text_standard_next = arrStandard[j];
+
+            if(data_example.indexOf(text_standard_next)>-1){
+                indexEnd = data_example.indexOf(text_standard_next);
+                data_tmp += '\n';
+            } else {
+                indexEnd = data_example.length;
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
+            
+            data_tmp += '/괄호영소'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호영소';
+            // data_tmp += '/괄호숫자'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호숫자';   // 추후 변경
+
+            input_tmp = '';
+
+            pushData_result();
+
+        } else if(data_example.indexOf(text_standard)<0){
+            data_tmp = '/보기문';
+            break;
+        }
+    }
+}
+
+
+// /괄호숫자(원형기호) → /괄호숫자 변환 (예시. ① → (1))
+function convertor_GihoNumber(){
+    inputData();
+    clearData();
+    
+    arrStandard = [' ①', ' ②', ' ③', ' ④', ' ⑤', ' ⑥', ' ⑦', ' ⑧', ' ⑨', ' ⑩', ' ⑪', ' ⑫', ' ⑬', ' ⑭', ' ⑮', ' ⑯', ' ⑰', ' ⑱', ' ⑲', ' ⑳'];
+    arrStandard_convertor = [' (1)', ' (2)', ' (3)', ' (4)', ' (5)', ' (6)', ' (7)', ' (8)', ' (9)', ' (10)', ' (11)', ' (12)', ' (13)', ' (14)', ' (15)', ' (16)', ' (17)', ' (18)', ' (19)', ' (20)'];
+
+    for(var i=0; i < arrStandard.length-1; i++){
+
+        text_standard = arrStandard[i];
+
+        if(data_example.indexOf(text_standard)>-1){
+            var j = i+1;
+            var indexStart = '';
+            var indexEnd = '';
+
+            indexStart = data_example.indexOf(text_standard);
+            
+            text_standard_next = arrStandard[j];
+
+            if(data_example.indexOf(text_standard_next)>-1){
+                indexEnd = data_example.indexOf(text_standard_next);
+                data_tmp += '\n';
+            } else {
+                indexEnd = data_example.length;
+                data_tmp += '\n';
+            }
+
+            input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
+            
+            data_tmp += '/괄호영소'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호영소';
+            // data_tmp += '/괄호숫자'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호숫자';   // 추후 변경
+
+            input_tmp = '';
+
+            pushData_result();
+
+        } else if(data_example.indexOf(text_standard)<0){
             data_tmp = '/보기문';
             break;
         }

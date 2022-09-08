@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>올에이클래스 - 포스트업로드</title>
+    <title>올에이클래스 - 보기문 변환툴</title>
     <!-- style import -->
     <link rel="stylesheet" href="./css/alla-input-style.css">
     <link rel="shortcut icon" type="image/x-icon" href="./img/icon_admin.png">
@@ -14,7 +14,7 @@
         <button onclick="convertor_KorJa()">ㄱ.</button>
         <button onclick="convertor_EngSmall()">a.</button>
         <button onclick="convertor_EngBig()">A.</button>
-        <!-- <button onclick="convertor_Bar()">바 -</button> -->
+        <button onclick="convertor_Bar()">-</button>
         <br><br>
         <button onclick="convertor_CircleKor()">㉮</button>
         <button onclick="convertor_CircleKorJa()">㉠</button>
@@ -25,11 +25,22 @@
         <button onclick="convertor_WrapKorJa()">( ㄱ )</button>
         <button onclick="convertor_WrapEngSmall()">( a )</button>
         <button onclick="convertor_WrapEngBig()">( A )</button>
+        <button onclick="convertor_WrapNumber()">( 1 )</button>
+        <br><br>
+        <button onclick="convertor_GihoWrapKor()">㈎→(가)</button>
+        <button onclick="convertor_GihoWrapKorJa()">㈀→(ㄱ)</button>
+        <button onclick="convertor_GihoWrapEngSmall()">⒜→(a)</button>
+        <button onclick="convertor_GihoWrapNumber()">⑴→(1)</button>
+        <button onclick="convertor_GihoNumber()">①→(1)</button>
         <br><br><br><br>
+        <!-- ------------------------------------------------------------ -->
+        <!-- ------------------------------------------------------------ -->
+
         <button onclick="pushData_Kor()">"가."</button>
         <button onclick="pushData_KorJa()">"ㄱ."</button>
         <button onclick="pushData_EngSmall()">"a."</button>
         <button onclick="pushData_EngBig()">"A."</button>
+        <button onclick="pushData_Bar()">"-"</button>
         <br><br>
         <button onclick="pushData_CircleKor()">"㉮"</button>
         <button onclick="pushData_CircleKorJa()">"㉠"</button>
@@ -40,6 +51,14 @@
         <button onclick="pushData_WrapKorJa()">"( ㄱ )"</button>
         <button onclick="pushData_WrapEngSmall()">"( a )"</button>
         <button onclick="pushData_WrapEngBig()">"( A )"</button>
+        <button onclick="pushData_WrapNumber()">"( 1 )"</button>
+        <br><br>
+        <button onclick="pushData_GihoWrapKor()">"㈎"</button>
+        <button onclick="pushData_GihoWrapKorJa()">"㈀"</button>
+        <button onclick="pushData_GihoWrapEngSmall()">"⒜"</button>
+        <button onclick="pushData_GihoWrapNumber()">"⑴"</button>
+        <button onclick="pushData_GihoNumber()">"①"</button>
+
     </div>
 
     <textarea class="txt_example" id="txt_example" placeholder=""></textarea>
