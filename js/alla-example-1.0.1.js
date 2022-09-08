@@ -27,13 +27,13 @@ var data_tmp = '/보기문';            // 변환한 데이터를 임시로 넣�
 
 var arrStandard = [];       // 보기문 리스트의 기준들을 넣어둘 배열 (예시: 가. 나. 다 또는 ⓐ, ⓑ, ⓒ)
 var arrStandard_convertor = [];     // 보기문 리스트 기준값을 다른 걸로 변경할 때 사용할 배열 (예시: ⒜ → (a))
-var varStandard = '  - ';       // 보기문 리스트의 기준값을 넣어둘 변수 (/바 전용)
 
 // ------------------------------------------------------------------------------
 // 함 수 영 역
 // ------------------------------------------------------------------------------
 
 function inputData(){       // textarea #txt_example 의 값을 data_example 변수에 넣는 함수
+    data_tmp = '/보기문';
     data_example = url_example.value;
 }
 
@@ -306,41 +306,52 @@ function convertor_EngBig(){     // 보기문 : a.b.c. 변환 함수
 
 
 // /바 - 
-function convertor_EngBig(){     // 보기문 : a.b.c. 변환 함수
-    inputData();    // #txt_example 데이터 가져오기
-    clearData();    // #txt_example 비우기
+function convertor_Bar(){
+    inputData();
+    clearData();
+    
+    text_standard = '  - ';             // text_standard 변수에 현재 기준값 넣기 (예시: "  - ")
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    var indexStart = '';                // 시작 인덱스 담을 변수 생성
+    var indexEnd = '';                  // 종료 인덱스 담을 변수 생성
 
-        text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
+    var posStart = 0;
+    var posStart2nd = '';
 
-        if(data_example.indexOf(text_standard)>-1){     // 보기문에서 기준값이 있다면
-            var j = i+1;                                                                // 기준값 배열의 다음단계 인덱스값을 담아둘 변수 j
-            var indexStart = '';                                                       // 시작 인덱스 담을 변수 생성
-            var indexEnd = '';                                                        // 종료 인덱스 담을 변수 생성
+    while (true) {
+        var foundPos = data_example.indexOf(text_standard, posStart);
+        if (foundPos == -1){
+            break;
+        }
+        // console.log('if 후 foundPos: '+foundPos);
+        indexStart = foundPos;                                         // 시작 인덱스에 값 담기
 
-            indexStart = data_example.indexOf(text_standard);              // 현재 기준값의 보기문 시작 인덱스값 넣기
-            
-            text_standard_next = arrStandard[j]                             // text_standard_next 변수에 다음단계 기준값 넣기 (예시: 현재 /가. 라면 /나.를 담는 것)
+        posStart = foundPos + text_standard.length;
 
-            if(data_example.indexOf(text_standard_next)>-1){                // 다음단계 기준값이 보기문에 있다면
-                indexEnd = data_example.indexOf(text_standard_next);            // 다음단계 기준값의 보기문 시작 인덱스값을 종료 인덱스값에 넣기
-                data_tmp += '\n';
-            } else {                                                                      // 다음단계 기준값이 보기문에 없다면
-                indexEnd = data_example.length;                                       // 보기문 맨끝값의 인덱스값을 종료 인덱스값에 넣기
-                data_tmp += '\n';
+        posStart2nd = posStart;
+        while (true) {
+            var foundPos = data_example.indexOf(text_standard, posStart2nd);
+            if (foundPos == -1){
+                // console.log('if 후후 마지막: '+data_example.length);
+                indexEnd = data_example.length;                        // 종료 인덱스에 마지막 인덱스값 담기
+                break;
+            } else {
+                // console.log('if 후후 foundPos: '+foundPos);
+                indexEnd = foundPos;                                   // 종료 인덱스에 값 담기
+                posStart2nd = foundPos + text_standard.length;
+                break;
             }
+        }
 
-            input_tmp = (data_example.substring(indexStart+3, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
-            
-            data_tmp += '/바 - '+arrStandard[i]+' '+input_tmp+'/.바';
-
-            input_tmp = '';
-
-            pushData_result();
-
-        } else if(data_example.indexOf(text_standard)<0){   // 보기문에서 다음단계 기준값이 없다면 반복 종료
+        if(data_example.indexOf(text_standard)>-1){         // 보기문에서 기준값이 있다면
+            input_tmp = (data_example.substring(indexStart+text_standard.length, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");      // 데이터 배열에 지금 가지고 온 데이터를 input_tmp 변수에 담아라
+            data_tmp += '\n';
+            data_tmp += '/바 - '+input_tmp+'/.바';                                                          // 변환된 정보를 data_tmp 변수에 담아라
+            input_tmp = '';                                                                                   // input_tmp 변수 초기화
+            pushData_result();                                                                                // textarea #txt_example 에 출력하기
+        }else{    // 보기문에서 다음단계 기준값이 없다면 반복 종료
             data_tmp = '/보기문';
+            console.log('break');
             break;
         }
     }
