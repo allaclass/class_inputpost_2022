@@ -967,7 +967,7 @@ function convertor_GihoNumber(){
 
             input_tmp = (data_example.substring(indexStart+2, indexEnd)).replace(/(^\s*)|(\s*$)/gi, "");
             
-            data_tmp += '/괄호영소'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호영소';
+            data_tmp += '/서클'+arrStandard_convertor[i]+' '+input_tmp+'/.서클';
             // data_tmp += '/괄호숫자'+arrStandard_convertor[i]+' '+input_tmp+'/.괄호숫자';   // 추후 변경
 
             input_tmp = '';
