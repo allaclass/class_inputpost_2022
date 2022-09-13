@@ -134,7 +134,7 @@ function convertor_Kor(){     // 보기문 : 가.나.다. 변환 함수
     
     arrStandard = [' 가.', ' 나.', ' 다.', ' 라.', ' 마.', ' 바.', ' 사.', ' 아.', ' 자.', ' 차.', ' 카.', ' 타.', ' 파.', ' 하.'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -178,7 +178,7 @@ function convertor_KorJa(){     // 보기문 : 가.나.다. 변환 함수
     
     arrStandard = [' ㄱ.', ' ㄴ.', ' ㄷ.', ' ㄹ.', ' ㅁ.', ' ㅂ.', ' ㅅ.', ' ㅇ.', ' ㅈ.', ' ㅊ.', ' ㅋ.', ' ㅌ.', ' ㅍ.', ' ㅎ.'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -222,7 +222,7 @@ function convertor_EngSmall(){     // 보기문 : a.b.c. 변환 함수
     
     arrStandard = [' a.', ' b.', ' c.', ' d.', ' e.', ' f.', ' g.', ' h.', ' i.', ' j.', ' k.', ' l.', ' m.', ' n.', ' o.', ' p.', ' q.', ' r.', ' s.', ' t.', ' u.', ' v.', ' w.', ' x.', ' y.', ' z.'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -267,7 +267,7 @@ function convertor_EngBig(){     // 보기문 : a.b.c. 변환 함수
     
     arrStandard = [' A.', ' B.', ' C.', ' D.', ' E.', ' F.', ' G.', ' H.', ' I.', ' J.', ' K.', ' L.', ' M.', ' N.', ' O.', ' P.', ' Q.', ' R.', ' S.', ' T.', ' U.', ' V.', ' W.', ' X.', ' Y.', ' Z.'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -365,7 +365,7 @@ function convertor_CircleKor(){     // 보기문 : a.b.c. 변환 함수
     
     arrStandard = [' ㉮', ' ㉯', ' ㉰', ' ㉱', ' ㉲', ' ㉳', ' ㉴', ' ㉵', ' ㉶', ' ㉷', ' ㉸', ' ㉹', ' ㉺', ' ㉻'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -409,7 +409,7 @@ function convertor_CircleKorJa(){     // 보기문 : a.b.c. 변환 함수
     
     arrStandard = [' ㉠', ' ㉡', ' ㉢', ' ㉣', ' ㉤', ' ㉥', ' ㉦', ' ㉧', ' ㉨', ' ㉩', ' ㉪', ' ㉫', ' ㉬', ' ㉭'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -453,7 +453,7 @@ function convertor_CircleEngSmall(){     // 보기문 : a.b.c. 변환 함수
     
     arrStandard = [' ⓐ', ' ⓑ', ' ⓒ', ' ⓓ', ' ⓔ', ' ⓕ', ' ⓖ', ' ⓗ', ' ⓘ', ' ⓙ', ' ⓚ', ' ⓛ', ' ⓜ', ' ⓝ', ' ⓞ', ' ⓟ', ' ⓠ', ' ⓡ', ' ⓢ', ' ⓣ', ' ⓤ', ' ⓥ', ' ⓦ', ' ⓧ', ' ⓨ', ' ⓩ'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -497,7 +497,7 @@ function convertor_CircleEngBig(){
     
     arrStandard = [' Ⓐ', ' Ⓑ', ' Ⓒ', ' Ⓓ', ' Ⓔ', ' Ⓕ', ' Ⓖ', ' Ⓗ', ' Ⓘ', ' Ⓙ', ' Ⓚ', ' Ⓛ', ' Ⓜ', ' Ⓝ', ' Ⓞ', ' Ⓟ', ' Ⓠ', ' Ⓡ', ' Ⓢ', ' Ⓣ', ' Ⓤ', ' Ⓥ', ' Ⓦ', ' Ⓧ', ' Ⓨ', ' Ⓩ'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -541,7 +541,7 @@ function convertor_WrapKor(){
     
     arrStandard = [' (가)', ' (나)', ' (다)', ' (라)', ' (마)', ' (바)', ' (사)', ' (아)', ' (자)', ' (차)', ' (카)', ' (타)', ' (파)', ' (하)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -585,7 +585,7 @@ function convertor_WrapKorJa(){
     
     arrStandard = [' (ㄱ)', ' (ㄴ)', ' (ㄷ)', ' (ㄹ)', ' (ㅁ)', ' (ㅂ)', ' (ㅅ)', ' (ㅇ)', ' (ㅈ)', ' (ㅊ)', ' (ㅋ)', ' (ㅌ)', ' (ㅍ)', ' (ㅎ)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -629,7 +629,7 @@ function convertor_WrapEngSmall(){
     
     arrStandard = [' (a)', ' (b)', ' (c)', ' (d)', ' (e)', ' (f)', ' (g)', ' (h)', ' (i)', ' (j)', ' (k)', ' (l)', ' (m)', ' (n)', ' (o)', ' (p)', ' (q)', ' (r)', ' (s)', ' (t)', ' (u)', ' (v)', ' (w)', ' (x)', ' (y)', ' (z)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
+    for(var i=0; i < arrStandard.length; i++){                // 기준값 배열의 인덱스를 기반으로 기준값을 비교하는 반복문
 
         text_standard = arrStandard[i];             // text_standard 변수에 현재 기준값 넣기 (예시: /가.   /나.  등 )
 
@@ -673,7 +673,7 @@ function convertor_WrapEngBig(){
     
     arrStandard = [' (A)', ' (B)', ' (C)', ' (D)', ' (E)', ' (F)', ' (G)', ' (H)', ' (I)', ' (J)', ' (K)', ' (L)', ' (M)', ' (N)', ' (O)', ' (P)', ' (Q)', ' (R)', ' (S)', ' (T)', ' (U)', ' (V)', ' (W)', ' (X)', ' (Y)', ' (Z)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){
+    for(var i=0; i < arrStandard.length; i++){
 
         text_standard = arrStandard[i];
 
@@ -717,7 +717,7 @@ function convertor_WrapNumber(){
     
     arrStandard = [' (1)', ' (2)', ' (3)', ' (4)', ' (5)', ' (6)', ' (7)', ' (8)', ' (9)', ' (10)', ' (11)', ' (12)', ' (13)', ' (14)', ' (15)', ' (16)', ' (17)', ' (18)', ' (19)', ' (20)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){
+    for(var i=0; i < arrStandard.length; i++){
 
         text_standard = arrStandard[i];
 
@@ -763,7 +763,7 @@ function convertor_GihoWrapKor(){
     arrStandard = [' ㈎', ' ㈏', ' ㈐', ' ㈑', ' ㈒', ' ㈓', ' ㈔', ' ㈕', ' ㈖', ' ㈗', ' ㈘', ' ㈙', ' ㈚', ' ㈛'];
     arrStandard_convertor = [' (가)', ' (나)', ' (다)', ' (라)', ' (마)', ' (바)', ' (사)', ' (아)', ' (자)', ' (차)', ' (카)', ' (타)', ' (파)', ' (하)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){
+    for(var i=0; i < arrStandard.length; i++){
 
         text_standard = arrStandard[i];
 
@@ -808,7 +808,7 @@ function convertor_GihoWrapKorJa(){
     arrStandard = [' ㈀', ' ㈁', ' ㈂', ' ㈃', ' ㈄', ' ㈅', ' ㈆', ' ㈇', ' ㈈', ' ㈉', ' ㈊', ' ㈋', ' ㈌', ' ㈍'];
     arrStandard_convertor = [' (ㄱ)', ' (ㄴ)', ' (ㄷ)', ' (ㄹ)', ' (ㅁ)', ' (ㅂ)', ' (ㅅ)', ' (ㅇ)', ' (ㅈ)', ' (ㅊ)', ' (ㅋ)', ' (ㅌ)', ' (ㅍ)', ' (ㅎ)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){
+    for(var i=0; i < arrStandard.length; i++){
 
         text_standard = arrStandard[i];
 
@@ -853,7 +853,7 @@ function convertor_GihoWrapEngSmall(){
     arrStandard = [' ⒜', ' ⒝', ' ⒞', ' ⒟', ' ⒠', ' ⒡', ' ⒢', ' ⒣', ' ⒤', ' ⒥', ' ⒦', ' ⒧', ' ⒨', ' ⒩', ' ⒪', ' ⒫', ' ⒬', ' ⒭', ' ⒮', ' ⒯', ' ⒰', ' ⒱', ' ⒲', ' ⒳', ' ⒴', ' ⒵'];
     arrStandard_convertor = [' (a)', ' (b)', ' (c)', ' (d)', ' (e)', ' (f)', ' (g)', ' (h)', ' (i)', ' (j)', ' (k)', ' (l)', ' (m)', ' (n)', ' (o)', ' (p)', ' (q)', ' (r)', ' (s)', ' (t)', ' (u)', ' (v)', ' (w)', ' (x)', ' (y)', ' (z)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){
+    for(var i=0; i < arrStandard.length; i++){
 
         text_standard = arrStandard[i];
 
@@ -898,7 +898,7 @@ function convertor_GihoWrapNumber(){
     arrStandard = [' ⑴', ' ⑵', ' ⑶', ' ⑷', ' ⑸', ' ⑹', ' ⑺', ' ⑻', ' ⑼', ' ⑽', ' ⑾', ' ⑿', ' ⒀', ' ⒁', ' ⒂', ' ⒃', ' ⒄', ' ⒅', ' ⒆', ' ⒇'];
     arrStandard_convertor = [' (1)', ' (2)', ' (3)', ' (4)', ' (5)', ' (6)', ' (7)', ' (8)', ' (9)', ' (10)', ' (11)', ' (12)', ' (13)', ' (14)', ' (15)', ' (16)', ' (17)', ' (18)', ' (19)', ' (20)'];
 
-    for(var i=0; i < arrStandard.length-1; i++){
+    for(var i=0; i < arrStandard.length; i++){
 
         text_standard = arrStandard[i];
 
@@ -944,7 +944,7 @@ function convertor_GihoNumber(){
     arrStandard = [' ①', ' ②', ' ③', ' ④', ' ⑤', ' ⑥', ' ⑦', ' ⑧', ' ⑨', ' ⑩'];
     arrStandard_convertor = [' ➀', ' ➁', ' ➂', ' ➃', ' ➄', ' ➅', ' ➆', ' ➇', ' ➈', ' ➉'];
 
-    for(var i=0; i < arrStandard.length-1; i++){
+    for(var i=0; i < arrStandard.length; i++){
 
         text_standard = arrStandard[i];
 
