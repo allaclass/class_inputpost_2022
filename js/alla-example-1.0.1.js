@@ -118,7 +118,7 @@ function pushData_GihoWrapNumber(){
 }
 
 function pushData_GihoNumber(){
-    url_example.value = '  ①AAAAA\n     ② BBBBB\n  ③ CCCCC\n ④ DDDD';
+    url_example.value = '  ①AAAAA\n     ② BBBBB\n  ③ CCCCC\n ④ DDDD\n  ⑤AAAAA\n     ⑥ BBBBB\n  ⑦ CCCCC\n ⑧ DDDD\n  ⑨ CCCCC\n ⑩ DDDD';
 }
 
 
