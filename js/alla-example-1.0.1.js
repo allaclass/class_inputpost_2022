@@ -81,6 +81,10 @@ function pushData_CircleEngBig(){
     url_example.value = '  Ⓐ가가가가\n     Ⓑ 나나나나\n  Ⓒ 다다다다\n Ⓓ 라라라라';
 }
 
+function pushData_Jul(){
+    url_example.value = '    - AAAA/줄\n    - BBBB/줄\n    - CCCC/줄\n    - DDDD/줄\n    - EEEEEEEEE';
+}
+
 function pushData_WrapKor(){
     url_example.value = '  (가)가가가가\n     (나) 나나나나\n  (다) 다다다다\n (라) 라라라라';
 }
@@ -531,6 +535,20 @@ function convertor_CircleEngBig(){
             break;
         }
     }
+}
+
+
+// /줄 제거하기
+function convertor_Jul(){
+    inputData();    // #txt_example 데이터 가져오기
+    clearData();    // #txt_example 비우기
+
+    data_example.replaceAll('/줄', '');
+
+    data_tmp = data_example.replaceAll('/줄', '');
+
+    pushData_result();                                                                                       // textarea #txt_example 에 출력하기
+
 }
 
 
