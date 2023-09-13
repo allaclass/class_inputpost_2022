@@ -147,21 +147,14 @@ function convertor_basic() {
   inputData(); // #txt_example 데이터 가져오기
   clearData(); // #txt_example 비우기
 
-  data_tmp += '\n';
+  data_tmp = '/보기문\n';
   data_tmp += '/단락 ' + data_example.replace(/(^\s*)|(\s*$)/gi, '') + '/.단락';
-  data_tmp = data_tmp.replace('()', '(/빈칸)');
-  data_tmp = data_tmp.replace('( )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(  )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(   )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(    )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(     )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(      )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(       )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(        )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(         )', '(/빈칸)');
-  data_tmp = data_tmp.replace('(          )', '(/빈칸)');
 
-  pushData_result(); // textarea #txt_example 에 출력하기
+  // 연속된 괄호들을 /빈칸)으로 대체합니다.
+  data_tmp = data_tmp.replace(/\(\s*\)/g, '(/빈칸)');
+
+  // textarea #txt_example 에 출력하기
+  pushData_result();
 }
 
 // /한글 - 가. 나.
